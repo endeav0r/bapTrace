@@ -14,7 +14,8 @@ test.lua does the same, in lua.
 
 
 
-Requires protobuf, udis86 and lua5.2.
+Requires protobuf, udis86 and lua5.2. If you just want the lua lib you don't
+need udis86.
 
 Does not require bap, however, you're going to need bap to generate the traces.
 
