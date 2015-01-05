@@ -1,0 +1,5 @@
+cd src
+protoc --cpp_out=. frame.piqi.proto
+g++ -O2 -shared -fPIC frame.piqi.pb.cc trace.container.cpp lua.cc -o ../lbapTrace.so -lprotobuf -llua5.2
+g++ -O2 frame.piqi.pb.cc trace.container.cpp traceDump.cc -o ../traceDump -lprotobuf -ludis86
+cd ..
