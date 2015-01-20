@@ -145,6 +145,28 @@ void lbapTrace_push_operand_value_list_table (lua_State * L, const operand_value
             lua_pushstring(L, "multiple");
             lua_settable(L, -3);
         }
+
+        lua_pushstring(L, "value");
+        lua_pushlstring(L, op_info.value().data(), op_info.value().size());
+        lua_settable(L, -3);
+
+        if (op_info.value().size() == 4) {
+
+            // this code could very possible kill cats
+            uint32_t value = *((uint32_t *) op_info.value().data());
+            lua_pushstring(L, "value_int");
+            lua_pushinteger(L, (uint64_t) value);
+            lua_settable(L, -3);
+        }
+        else if (op_info.value().size() == 1) {
+
+            // this code could very possible kill cats
+            uint32_t value = *((uint8_t *) op_info.value().data());
+            lua_pushstring(L, "value_int");
+            lua_pushinteger(L, (uint64_t) value);
+            lua_settable(L, -3);
+        }
+
         lua_settable(L, -3);
     }
 }
