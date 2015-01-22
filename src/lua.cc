@@ -116,7 +116,7 @@ void lbapTrace_push_operand_value_list_table (lua_State * L, const operand_value
         lua_settable(L, -3);
 
         lua_pushstring(L, "size");
-        lua_pushinteger(L, op_info.value().size());
+        lua_pushinteger(L, op_info.value().size() * 8);
         lua_settable(L, -3);
 
         if (op_info.operand_info_specific().has_mem_operand()) {
